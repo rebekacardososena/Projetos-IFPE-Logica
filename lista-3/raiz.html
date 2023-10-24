@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raiz</title>
+</head>
+<body>
+  <h2>Raiz Quadrada</h2><hr>
+  <img src="374642_460s-scaled500.jpg" alt="raizMeme" width="200">
+  <br>
+  <p>Digite um número: <input type="text" id="numero"/></p>
+  <p><button id="btnCalculo">Calcular</button></p>
+    <p id="resultado"></p>
+  <script>
+    function calcularRaiz() {
+     let numero = parseInt(document.getElementById("numero").value);
+      let raizQuadrada = Math.sqrt(numero);
+
+      if (Number.isInteger(raizQuadrada)) {
+        document.getElementById("resultado").textContent = (`A raiz quadrada de ${numero} é ${raizQuadrada}`);
+      } else {
+        document.getElementById("resultado").textContent = (`Não há raiz exata para ${numero}`);
+      }
+    }
+    document.getElementById("btnCalculo").addEventListener("click", calcularRaiz);
+  </script>
+</body>
+</html>

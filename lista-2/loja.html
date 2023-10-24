@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lojinha</title>
+</head>
+<body>
+    <script>
+        let produto = Number(prompt("Insira o preço do produto: "));
+        alert("Pagamento à vista tem 10% de desconto, a prazo podem ser divididos em até 3x sem juros.")
+        let avista = produto * 0.9;
+        let parcelado = produto / 3;
+        alert("O preço do produto é R$: " + produto + "\nPagamento à Vista é R$: " + avista + "\nParcelando fica 3x de R$: " + parcelado);
+    </script>
+</body>
+</html>

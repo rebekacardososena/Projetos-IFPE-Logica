@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mádia Encerrando</title>
+</head>
+<body>
+    <script>
+      let contador = 0;
+let soma = 0;
+
+while (true) {
+  const numero = parseInt(prompt("Digite números inteiros positivos (0 para encerrar)"));
+  if (numero === 0) {
+    break;
+  } else if (!isNaN(numero) && numero > 0) {
+    contador++;
+    soma += numero;
+  } else {
+    alert("Número inválido. Insira um número inteiro positivo.");
+  }
+}
+
+if (contador > 0) {
+  const media = soma / contador;
+  alert(`A média é: ${media}`);
+} else {
+  alert("Nenhum número válido foi inserido.");
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado</title>
+</head>
+<body>
+    <header><h2>Mercadinho da Esquina</h2></header><hr>
+    <p>Produto <input type="text" id="inProduto"/></p>
+    <p>Preço R$ <input type="text" id="inPreco"/></p>
+    <p><input type="button" value="Ver Promoção" id="btVerPromocao"/></p>
+   <script>
+        function Promocao() {
+            let inProduto = document.getElementById("inProduto").value;
+            let inPreco = parseFloat(document.getElementById("inPreco").value);
+          
+            let promo = inPreco * 2;
+            let divisao = inPreco / 2;
+            let conta = promo + divisao;
+
+            let promocaoFinal = inProduto +( " -  Promoção: leve 3 por R$ " + conta + "\nO 3º produto custa apenas R$ " ) + divisao;
+            
+            alert(promocaoFinal);
+        }
+
+        let btVerPromocao = document.getElementById("btVerPromocao");
+        btVerPromocao.addEventListener("click", Promocao);
+   </script>
+</body>
+</html>

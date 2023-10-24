@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porquinhos da Índia</title>
+</head>
+<body>
+    <header><h1>Programa Porquinhos da Índia</h1></header><hr/>
+
+    <p>Número de porquinhos da Índia (mínimo 2): <input type="text" id="numPorquinhos" min="2" /></p>
+    <p>Quantidade de anos: <input type="text" id="numAnos" /></p>
+    <button id="btnCalcular">Calcular</button>
+    <p id="resultado"></p>
+    <script>
+        function calcularPorquinhos() {
+            let numPorquinhos = parseInt(document.getElementById("numPorquinhos").value);
+            let numAnos = parseInt(document.getElementById("numAnos").value);
+            let resultado = document.getElementById("resultado");
+
+            if (!isNaN(numPorquinhos) && numPorquinhos >= 2 && !isNaN(numAnos) && numAnos >= 1) {
+                let populaçãoPorquinhos = numPorquinhos;
+                let resultadoTexto = ("");
+
+                for (let ano = 1; ano <= numAnos; ano++) {
+                    resultadoTexto += (`${ano}º ano: ${populaçãoPorquinhos}\n`);
+                    populaçãoPorquinhos *= 3;
+                }
+
+                resultado.textContent = resultadoTexto;
+            } else {
+                resultado.textContent = ("Entrada inválida. Verifique os valores.");
+            }
+        }
+
+        document.getElementById("btnCalcular").addEventListener("click", calcularPorquinhos);
+    </script>
+</body>
+</html>

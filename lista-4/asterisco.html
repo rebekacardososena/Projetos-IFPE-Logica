@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteriscos</title>
+</head>
+<body>
+    <header><h1>Programa Asteriscos</h1></header><hr/>
+
+    <p>Número de linhas: <input type="text" id="numLinhas" /></p>
+    <button id="btnExibir">Exibir</button>
+    <p id="resultado"></p>
+    <script>
+        function exibirAsteriscos() {
+            let numLinhas = parseInt(document.getElementById("numLinhas").value);
+            let resultado = document.getElementById("resultado");
+
+            if (!isNaN(numLinhas) && numLinhas > 0) {
+                let asteriscos = ("");
+                for (let i = 1; i <= numLinhas; i++) {
+                    asteriscos += ("*").repeat(i) + ("<br>");
+                }
+                resultado.innerHTML = asteriscos;
+            } else {
+                resultado.textContent = ("Número inválido!");
+            }
+        }
+
+        document.getElementById("btnExibir").addEventListener("click", exibirAsteriscos);
+    </script>
+</body>
+</html>

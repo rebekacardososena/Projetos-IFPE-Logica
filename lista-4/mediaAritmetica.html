@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média de Números</title>
+</head>
+<body>
+    <header><h1>Programa Média de Números</h1></header><hr/>
+
+    <p>Insira o 1º número: <input type="text" id="numero1"/></p>
+    <p>Insira o 2º número: <input type="text" id="numero2"/></p>
+    <p>Insira o 3º número: <input type="text" id="numero3"/></p>
+    <p>Insira o 4º número: <input type="text" id="numero4"/></p>
+    <p>Insira o 5º número: <input type="text" id="numero5"/></p>
+    <button id="btnCalcular">Calcular Média</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularMedia() {
+            let contador = 0;
+            let soma = 0;
+            for (let i = 1; i <= 5; i++) {
+                let numero = parseFloat(document.getElementById("numero" + i).value);
+                if (!isNaN(numero) && numero >= 0) {
+                    contador++;
+                    soma += numero;
+                }
+            }
+            let resultado = document.getElementById("resultado");
+            if (contador === 5) {
+                let media = soma / contador;
+                resultado.textContent = (`A média é: ${media}`);
+            } else {
+                resultado.textContent = ("Entrada inválida. Certifique-se de inserir cinco números inteiros positivos.");
+            }
+        }
+
+        document.getElementById("btnCalcular").addEventListener("click", calcularMedia);
+    </script>
+</body>
+</html>

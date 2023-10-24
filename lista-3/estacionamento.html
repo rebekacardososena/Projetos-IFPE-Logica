@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estacionamento</title>
+</head>
+<body>
+    <h2>Estacionamento</h2><hr>
+
+    <p>Valor R$: <input type="text" id="valMoedas"/></p>
+    <p>Tempo em minutos: <span id="tempoMin"></span></p>
+    <p><button id="btnCalculo">Calcular</button></p>
+    <p id="resultado"></p>
+    <pre>
++---------------+--------------------+
+| Valor R$     | Tempo (min)         |
++--------------+---------------------+
+| 1.00         | 30                  |
++--------------+--------------------+
+| 1.75         | 60                  |
++--------------+--------------------+
+| 3.00         | 120                 |
++--------------+--------------------+
+    </pre>
+
+    <script>
+        function calcularTempo() {
+            let valorMoeda = parseFloat(document.getElementById("valMoedas").value);
+
+            if (valorMoeda >= 3.00) {
+                document.getElementById("tempoMin").textContent = 120;
+            } else if (valorMoeda >= 1.75) {
+                document.getElementById("tempoMin").textContent = 60;
+            } else if (valorMoeda >= 1.00) {
+                document.getElementById("tempoMin").textContent = 30;
+            } else {
+                document.getElementById("tempoMin").textContent = 0;
+                document.getElementById("resultado").textContent = ("Valor insuficiente!");
+                return;
+            }
+
+            let tempo = parseInt(document.getElementById("tempoMin").textContent);
+            let troco = valorMoeda - tempo / 60;
+
+            if (troco < 0) {
+                document.getElementById("resultado").textContent = ("Valor insuficiente!");
+            } else {
+                document.getElementById("resultado").textContent = (`Tempo: ${tempo} min\nTroco R$: ${troco.toFixed(2)}`);
+            }
+        }
+
+        document.getElementById("btnCalculo").addEventListener("click", calcularTempo);
+    </script>
+</body>
+</html>

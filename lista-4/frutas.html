@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruta</title>
+</head>
+<body>
+    <header><h1>Programa Repetição de Fruta</h1></header><hr/>
+
+    <p>Fruta: <input type="text" id="fruta"/></p>
+    <p>Repetição: <input type="text" id="numero"/></p>
+    <p><input type="button" value="Ver Promoção" id="btnRepetir"/></p>
+    <p id="resultado"></p>
+    <script>
+        function exibirFrutinhas() {
+            let nomeFruta = document.getElementById("fruta").value;
+            let numRepeticoes = parseInt(document.getElementById("numero").value);
+            let resultado = document.getElementById("resultado");
+
+            if (!isNaN(numRepeticoes) && numRepeticoes > 0) {
+                let resultadoString = ("");
+                for (let i = 0; i < numRepeticoes; i++) {
+                    resultadoString += nomeFruta;
+                    if (i < numRepeticoes - 1) {
+                        resultadoString += (", ");
+                    }
+                }
+                resultado.textContent = resultadoString;
+            } else {
+                resultado.textContent = ("Número inválido!");
+            }
+        };
+        document.getElementById("btnRepetir").addEventListener("click", exibirFrutinhas);
+    </script>
+</body>
+</html>

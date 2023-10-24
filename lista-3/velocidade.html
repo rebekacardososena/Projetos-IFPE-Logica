@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velozes e Furiosos</title>
+</head>
+<body>
+  <script>
+    let velocidadePermitida = parseFloat(prompt('Velocidade permitida: '));
+    let velocidadeMotorista = parseFloat(prompt('Velocidade do motorista: '));
+
+    function velocidade() {
+      let limiteExcesso = 0.2 * velocidadePermitida;
+
+      if (velocidadeMotorista <= velocidadePermitida) {
+        return ("Sem multa");
+      } else if (velocidadeMotorista <= velocidadePermitida + limiteExcesso) {
+        return ("Multa leve");
+      } else {
+        return ("Multa grave");
+      }
+    }
+
+    const situacao = velocidade();
+    alert("Situação: " + situacao);
+  </script>
+</body>
+</html>
